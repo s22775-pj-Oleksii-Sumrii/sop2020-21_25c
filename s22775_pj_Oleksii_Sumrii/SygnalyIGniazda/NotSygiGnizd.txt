@@ -1,0 +1,12 @@
+struct hostent *server (struktura typu hosten)
+Za pomocą "char buffer[256]" serwer odczytuje znaki z połączenia gniazda do buffora
+struktura do przechowywania adresu hosta
+SOCK_STREAM - połączenie podobne do potoku, ale dwukierunkowe
+trzeci argument to protocol=0. OS sam dobiera domyślne protokoły 
+sin_port - numer portu, ale musi być przekazany w formacie network byte order.
+Dlatego używamy funkcji htons.
+Funkcja bzero ustawia wszystkie wartosci w buforze na 0, Pierweszy argument to wskaźnik do bufora a drugi to rozmiar bufora, a drugi to rozmiar buffora, inicjalizuje serv_addr 0. 
+Zmienna serv_addr jest strukturą typu socakaddr_in, ma ona cztery pola. 1 pole to sin_family,któ©e zawiera kod rodziny adresów, ustawiona jest na stałą AF_INET.
+funkcja connect jest wywyływana przez kilenta w celu nawiązania łączności z serwerem, pobiera 3 argument: deskryptor, adres hosta, rozmiar hosta.
+Użyjąc fgets to odczyta wiadomości z stdin, zapisusze do gniazda, odczytuje odpowiedź z gniazda i wyświetla ją na ekranie.
+Zmienne sockfd, newsockfd przechowują wartości zwrócone przez wywołąnie systemowe gniazda i wywołanie Accept . Portno przechowuje numer portu. Clilen przechowuje rozmiar adrsu klienta.
